@@ -1,5 +1,7 @@
 # Shree Madhuvan School Website
 
+url - https://shree-madhuvan-school.madhuvanschool-8d6.workers.dev
+
 Static website (plain HTML/CSS/JS, no build step).
 
 ## Files
