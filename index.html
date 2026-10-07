@@ -455,9 +455,18 @@ nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column
       <div class="stage" id="cstage" aria-roledescription="carousel" aria-label="School campus photos">
         <button class="arr tl" id="cprev" aria-label="Previous photo">&#8249;</button>
         <button class="arr tr" id="cnext" aria-label="Next photo">&#8250;</button>
-        <div class="tmeta"><button id="cplay" aria-label="Pause or play slideshow">&#10074;&#10074;</button><span id="ccount">1 / 4</span></div>
+        <div class="tmeta"><button id="cplay" aria-label="Pause or play slideshow">&#10074;&#10074;</button><span id="ccount">1 / 5</span></div>
       </div>
       <div class="tstrip" id="cstrip"></div>
+    </div>
+    <div class="tour" id="student-corner">
+      <h3 class="center" data-i="sco_h">Student Corner</h3>
+      <div class="stage" id="sstage" aria-roledescription="carousel" aria-label="Student Corner photos">
+        <button class="arr tl" id="sprev" aria-label="Previous photo">&#8249;</button>
+        <button class="arr tr" id="snext" aria-label="Next photo">&#8250;</button>
+        <div class="tmeta"><button id="splay" aria-label="Pause or play slideshow">&#10074;&#10074;</button><span id="scount">1 / 18</span></div>
+      </div>
+      <div class="tstrip" id="sstrip"></div>
     </div>
     </div></section>
 </div>
@@ -528,7 +537,7 @@ $(".prev").onclick=()=>show(cur-1,true);$(".next").onclick=()=>show(cur+1,true);
 /* Slideshows: Tour 2026 and School campus */
 const TOUR=[["img-efc84a43.jpg","t_smr","Smritivan museum"],["img-05883410.jpg","t_smr","Smritivan museum"],["img-d40d46de.jpg","t_grp","Group photo"],["img-e54769f4.jpg","t_grp","Group photo"],["img-3bb05a82.jpg","t_grp","Group photo"],["img-7cc67c13.jpg","t_grp","Group photo"],["img-86d44506.jpg","t_grp","Group photo"],["img-f5b76efb.jpg","t_mus","Museum visit"],["img-d02b50db.jpg","t_mus","Museum visit"],["img-8bacda48.jpg","t_mus","Museum visit"],["img-168eddbc.jpg","t_mus","Museum visit"],["img-dfa68fbe.jpg","t_tem","Temple visit"],["img-f1c4999a.jpg","t_grp","Group photo"]];
 const IMG=(id)=>document.getElementById(id).src;
-const CAMPUS=[[IMG("im-hero"),"gc1","Courtyard"],[IMG("im-about"),"gc2","Front entrance"],["img-dccb4da3.jpg","gc3","Balcony"],["img-e0cf78e1.jpg","gc4","Entrance"]];
+const CAMPUS=[[IMG("im-hero"),"gc1","Courtyard"],[IMG("im-about"),"gc2","Front entrance"],["assets/img/new-campus-01-campus-aerial-view.jpg", "gc5", "Campus aerial view"],["assets/img/new-campus-02-study-time-in-courtyard.jpg", "gc6", "Study time in courtyard"],["assets/img/new-campus-03-sunset-over-campus.jpg", "gc7", "Sunset over campus"]];
 function slideshow(id,items){
   const stage=$("#"+id+"stage"),strip=$("#"+id+"strip"),count=$("#"+id+"count"),play=$("#"+id+"play");
   let vis=true;if("IntersectionObserver" in window)new IntersectionObserver((es)=>es.forEach((e)=>{vis=e.isIntersecting})).observe(stage);
@@ -554,7 +563,8 @@ function slideshow(id,items){
   play.onclick=()=>{on=!on;start()};
   show(0);start();
 }
-slideshow("t",TOUR);slideshow("c",CAMPUS);
+const STUDENT=[["assets/img/new-student-01-students-with-teacher.jpg", "sc_tea", "Students with teacher"], ["assets/img/new-student-02-group-photo.jpg", "sc_grp", "Group photo"], ["assets/img/new-student-03-morning-assembly.jpg", "sc_asm", "Morning assembly"], ["assets/img/new-student-04-morning-assembly.jpg", "sc_asm", "Morning assembly"], ["assets/img/new-student-05-flag-rally.jpg", "sc_rly", "Flag rally"], ["assets/img/new-student-06-morning-assembly.jpg", "sc_asm", "Morning assembly"], ["assets/img/new-student-07-group-photo.jpg", "sc_grp", "Group photo"], ["assets/img/new-student-08-flag-rally.jpg", "sc_rly", "Flag rally"], ["assets/img/new-student-09-flag-rally.jpg", "sc_rly", "Flag rally"], ["assets/img/new-student-10-gift-ceremony.jpg", "sc_gft", "Gift ceremony"], ["assets/img/new-student-11-gift-ceremony.jpg", "sc_gft", "Gift ceremony"], ["assets/img/new-student-12-flag-rally.jpg", "sc_rly", "Flag rally"], ["assets/img/new-student-13-group-photo.jpg", "sc_grp", "Group photo"], ["assets/img/new-student-14-gift-ceremony.jpg", "sc_gft", "Gift ceremony"], ["assets/img/new-student-15-flag-rally.jpg", "sc_rly", "Flag rally"], ["assets/img/new-student-16-trophy-celebration.jpg", "sc_tro", "Trophy celebration"], ["assets/img/new-student-17-flag-rally.jpg", "sc_rly", "Flag rally"], ["assets/img/new-student-18-flag-rally.jpg", "sc_rly", "Flag rally"]];
+slideshow("t",TOUR);slideshow("c",CAMPUS);slideshow("s",STUDENT);
 
 /* Our results */
 const RES=[[2026, "s12", "img-44b0eb44.jpg"], [2026, "s10", "img-21ad750d.jpg"], [2025, "s12", "img-8593fe70.jpg"], [2025, "s12", "img-6a702479.jpg"], [2025, "s10", "img-a197b152.jpg"], [2024, "s10", "img-1f7eb029.jpg"], [2024, "s12", "img-8165315b.jpg"], [2024, "math", "img-5d09b672.jpg"], [2022, "s12", "img-69a8e543.jpg"], [2022, "top", "img-b763c152.jpg"], [2022, "math", "img-c3dc7665.jpg"], [2020, "s10", "img-26f8f70b.jpg"], [2019, "s12", "img-f01d258f.jpg"], [2019, "s10", "img-313fb05c.jpg"], [2018, "s10", "img-3ed8d2ec.jpg"]];
@@ -590,6 +600,7 @@ c_h:"સંપર્ક કરો",ct1:"સરનામું",ct2:"ફોન",c
 c_p:"પ્રવેશ ચાલુ છે. તમારી વિગતો મોકલો, અમે તમને પાછો ફોન કરીશું.",l_name:"તમારું નામ",l_phone:"ફોન નંબર",l_class:"કયા ધોરણમાં પ્રવેશ જોઈએ છે",l_msg:"સંદેશ",
 b_wa:"WhatsApp પર મોકલો",b_mail:"ઇમેઇલ દ્વારા મોકલો",ft:"ડે સ્કૂલ | કેજીથી ધોરણ ૧૨ (કોમર્સ અને આર્ટ્સ)",ft_nav:"નેવિગેશન",rights:"બધા હકો સુરક્ષિત.",t_h:"પ્રવાસ 2026",t_p:"અમારા વિદ્યાર્થીઓનો શૈક્ષણિક પ્રવાસ. ફોટા આપોઆપ બદલાય છે.",sc_h:"શાળા પરિસર",t_smr:"સ્મૃતિવન મ્યુઝિયમ",t_grp:"સમૂહ ફોટો",t_mus:"મ્યુઝિયમ મુલાકાત",t_tem:"મંદિર મુલાકાત"};
 Object.assign(GU,{n_res:"અમારું પરિણામ",rs_h:"અમારું પરિણામ",rs_p:"અમારું પરિણામ એ જ અમારી ઓળખ",rs_f1:"ધોરણ 12: સતત 6 વર્ષથી 100% પરિણામ",rs_f2:"ધોરણ 10 (2026): 92% પરિણામ",rs_f3:"ધોરણ 10 (2024): 97.95% પરિણામ",rs_more:"બધા પરિણામ જુઓ",rs_all:"બધા",rs_tap:"મોટું જોવા માટે પોસ્ટર પર ટેપ કરો.",s10:"ધોરણ 10",s12:"ધોરણ 12",top:"તેજસ્વી તારલાઓ",math:"ગણિતના મહારથીઓ"});
+Object.assign(GU,{sco_h:"વિદ્યાર્થી કોર્નર",sc_tea:"શિક્ષક સાથે વિદ્યાર્થીઓ",sc_grp:"સમૂહ ફોટો",sc_asm:"સવારની પ્રાર્થનાસભા",sc_rly:"તિરંગા રેલી",sc_gft:"ભેટ સમારંભ",sc_tro:"ટ્રોફી ઉજવણી",gc5:"કેમ્પસનું હવાઈ દૃશ્ય",gc6:"આંગણામાં અભ્યાસ સમય",gc7:"કેમ્પસ પર સૂર્યાસ્ત"});
 const els=$$("[data-i]");els.forEach((e)=>(e.dataset.en=e.textContent));
 const langBtn=$("#lang");
 function setLang(l){els.forEach((e)=>(e.textContent=l==="gu"?GU[e.dataset.i]??e.dataset.en:e.dataset.en));document.documentElement.lang=l;langBtn.textContent=l==="gu"?"English":"ગુજરાતી";try{localStorage.setItem("lang",l)}catch(e){}}
