@@ -615,7 +615,7 @@ $("#wd-x").onclick=()=>wd.close();wd.onclick=(e)=>{if(e.target===wd)wd.close()};
 
 
 /* new hostel building photos */
-const HOSTEL=["img-377c9358.jpg", "img-63d13282.jpg", "img-aa596a7f.jpg"];
+const HOSTEL=["assets/img/img-377c9358.jpg", "assets/img/img-63d13282.jpg", "assets/img/img-aa596a7f.jpg", "assets/img/new-hostel-01-hostel-building.jpg", "assets/img/new-hostel-02-classroom-block.jpg", "assets/img/new-hostel-03-campus-wide-view.jpg", "assets/img/new-hostel-04-hostel-and-grounds.jpg"];
 (function(){const d=$("#hs-dlg"),img=$("#hs-img"),strip=$("#hs-strip"),cnt=$("#hs-count");let i=0;
 HOSTEL.forEach((u,n)=>{const b=document.createElement("button");b.type="button";b.className="th";b.setAttribute("aria-label","Photo "+(n+1));b.innerHTML='<img src="'+u+'" alt="">';b.onclick=()=>go(n);strip.appendChild(b)});
 function go(n){i=(n+HOSTEL.length)%HOSTEL.length;img.src=HOSTEL[i];cnt.textContent=(i+1)+" / "+HOSTEL.length;[...strip.children].forEach((b,x)=>b.classList.toggle("on",x===i))}
